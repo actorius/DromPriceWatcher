@@ -1,0 +1,37 @@
+{
+    "name": "Drom price watcher",
+    "version": "1.1",
+    "description": "Расширение позволяет отслеживать изменение цены объявления",
+    "manifest_version": 2,
+    "author": "Vitaliy Dutov",
+    "permissions": [
+        "tabs",
+        "activeTab",
+         "storage",
+        "http://*.drom.ru/*"
+    ],
+    "browser_action": {
+        "default_title": "Drom price watcher"
+    },
+    "background": {
+        "scripts": [ "background.js" ],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": [ "http://*.drom.ru/*" ],
+            "css": [ "styles.css" ],
+            "js": [ "jquery-2.1.3.min.js", "content_script.js" ],
+            "run_at": "document_end"
+        }
+    ],
+     "web_accessible_resources": [
+        "images/up.png","images/down.png","images/equal.gif"
+     ],
+    "icons":
+    {
+      "128": "images/icon128.png",
+      "16": "images/icon16.png",
+      "48": "images/icon48.png"
+    }
+}
